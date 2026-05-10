@@ -60,7 +60,7 @@ function PageDisplayBox({
       <motion.div
         initial={{ y: 40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
+        transition={{ duration: 2.0, ease: "easeOut" }}
         className="relative"
       >
         <div className="relative h-[360px] overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-zinc-950 via-zinc-900 to-black p-8 shadow-2xl md:h-[440px]">
