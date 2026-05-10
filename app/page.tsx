@@ -259,18 +259,15 @@ export default function BCBHaulingWebsite() {
 
   function navigatePage(key: string) {
   const pageKey = key as keyof typeof pages;
-  if (pageKey === activePage || transitioning) return;
+  if (pageKey === activePage) return;
 
-  setTransitioning(true);
   setMenuOpen(false);
-
-  setTimeout(() => {
-    setActivePage(pageKey);
-  }, 420);
+  setActivePage(pageKey);
+  setTransitioning(true);
 
   setTimeout(() => {
     setTransitioning(false);
-  }, 950);
+  }, 520);
 }
 
   return (
@@ -280,13 +277,13 @@ export default function BCBHaulingWebsite() {
   {transitioning && (
     <motion.div
       initial={{ y: "-100%" }}
-      animate={{ y: ["-100%", "0%", "0%", "-100%"] }}
+      animate={{ y: ["-100%", "0%", "-100%"] }}
       transition={{
-        duration: 0.9,
-        times: [0, 0.35, 0.58, 1],
+        duration: 0.5,
+        times: [0, 0.45, 1],
         ease: "easeInOut",
       }}
-      className="fixed inset-0 z-[200] bg-cover bg-center bg-no-repeat"
+      className="fixed inset-0 z-[200] bg-cover bg-center bg-no-repeat pointer-events-none"
       style={{
         backgroundImage:
           'linear-gradient(rgba(0,0,0,.05), rgba(0,0,0,.18)), url("/transition-door.jpg")',
