@@ -272,7 +272,7 @@ export default function BCBHaulingWebsite() {
   // smoother longer animation
   setTimeout(() => {
   setTransitioning(false);
-}, 2500);
+}, 1500);
 }
 
   return (
