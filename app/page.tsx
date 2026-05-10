@@ -44,7 +44,13 @@ const services = [
   "Small Moving Help",
 ];
 
-function PageDisplayBox({ activePage, onNavigate }) {
+function PageDisplayBox({
+  activePage,
+  onNavigate,
+}: {
+  activePage: keyof typeof pages;
+  onNavigate: (key: string) => void;
+}) {
   const page = pages[activePage as keyof typeof pages];
 
   return (
