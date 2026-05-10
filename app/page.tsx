@@ -340,7 +340,6 @@ export default function BCBHaulingWebsite() {
           </div>
 
           {menuOpen && (
-            {menuOpen && (
               <div className="mt-4 grid max-h-[70vh] gap-3 overflow-y-auto rounded-[1.5rem] border border-white/10 bg-black/95 p-3 shadow-2xl md:hidden">
               {Object.entries(pages).map(([key, page]) => (
                 <button
