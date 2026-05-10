@@ -258,35 +258,40 @@ export default function BCBHaulingWebsite() {
   );
 
   function navigatePage(key: string) {
-    const pageKey = key as keyof typeof pages;
-    if (pageKey === activePage || transitioning) return;
+  const pageKey = key as keyof typeof pages;
+  if (pageKey === activePage || transitioning) return;
 
-    setNextPageLabel(pages[pageKey].label);
-    setTransitioning(true);
-    setMenuOpen(false);
+  setTransitioning(true);
+  setMenuOpen(false);
 
-    setTimeout(() => {
-      setActivePage(pageKey);
-    }, 650);
+  setTimeout(() => {
+    setActivePage(pageKey);
+  }, 700);
 
-    setTimeout(() => {
-      setTransitioning(false);
-    }, 1450);
-  }
+  setTimeout(() => {
+    setTransitioning(false);
+  }, 1400);
+}
 
   return (
     <>
-      <AnimatePresence>
+     
+     <AnimatePresence>
   {transitioning && (
     <motion.div
       initial={{ y: "-100%" }}
-      animate={{ y: "0%" }}
-      exit={{ y: "-100%" }}
-      transition={{ duration: 0.65, ease: [0.76, 0, 0.24, 1] }}
+      animate={{
+        y: ["-100%", "0%", "0%", "-100%"],
+      }}
+      transition={{
+        duration: 1.35,
+        times: [0, 0.45, 0.7, 1],
+        ease: "easeInOut",
+      }}
       className="fixed inset-0 z-[200] bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage:
-          'linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.25)), url("/transition-door.jpg")',
+          'linear-gradient(rgba(0,0,0,.08), rgba(0,0,0,.22)), url("/transition-door.jpg")',
       }}
     />
   )}
@@ -300,7 +305,7 @@ export default function BCBHaulingWebsite() {
           <div className="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-white/10 blur-[140px]" />
         </div>
 
-        <nav className="fixed left-1/2 top-5 z-50 w-[calc(100%-2rem)] max-w-6xl -translate-x-1/2 rounded-full border border-white/10 bg-black/55 px-4 py-3 shadow-2xl backdrop-blur-xl">
+        <nav className="fixed left-1/2 top-5 z-50 w-[calc(100%-2rem)] max-w-6xl -translate-x-1/2 rounded-[1.8rem] border border-white/10 bg-black/55 px-4 py-3 shadow-2xl backdrop-blur-xl">
           <div className="flex items-center justify-between">
             <button onClick={() => navigatePage("home")} className="flex items-center gap-3">
               <div className="grid h-11 w-11 place-items-center rounded-full bg-[#B79A57] font-black text-black">
