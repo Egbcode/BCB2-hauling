@@ -10,7 +10,7 @@ const pages = {
     title: "Broke College Boys. Serious Hauling.",
     eyebrow: "Danville, KY • Junk Removal • Pickups • Cleanouts",
     body:
-      "BCB Hauling is Christian, Ezra, and Eddie — three college-age guys working fast, pricing fair, and making the annoying jobs disappear.",
+      "BCB Hauling is Christian, Eddie, and Ezra — three college-age guys working fast, pricing fair, and making the annoying jobs disappear.",
   },
   services: {
     label: "Services",
@@ -79,7 +79,7 @@ function PageDisplayBox({
                   initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   exit={{ opacity: 0, y: -20, filter: "blur(8px)" }}
-                  transition={{ duration: 0.45 }}
+                  transition={{ duration: 1.0 }}
                 >
                   <h2 className="text-6xl font-black tracking-tight text-white md:text-8xl">
                     {page.label}
