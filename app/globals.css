@@ -1,26 +1,219 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050505;
+  --foreground: #f3f3f3;
+
+  --gold: #c7a75b;
+  --card: #0d0d0d;
+  --border: rgba(199, 167, 91, 0.2);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html,
+body {
+  margin: 0;
+  padding: 0;
+
+  background: var(--background);
+  color: var(--foreground);
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  scroll-behavior: smooth;
+}
+
+/* GLOBAL */
+* {
+  box-sizing: border-box;
+}
+
+main {
+  min-height: 100vh;
+  overflow: visible;
+  padding-bottom: 180px;
+}
+
+section {
+  scroll-margin-top: 130px;
+}
+
+/* NAVBAR */
+.navbar {
+  position: sticky;
+  top: 12px;
+  z-index: 999;
+
+  width: calc(100% - 32px);
+  margin: 16px auto;
+
+  background: rgba(8, 8, 8, 0.94);
+
+  border: 1px solid var(--border);
+  border-radius: 28px;
+
+  backdrop-filter: blur(18px);
+
+  padding: 14px 18px;
+}
+
+/* MOBILE MENU */
+.mobile-menu,
+.mobileMenu,
+.menuOverlay {
+  position: fixed;
+
+  top: 90px;
+  left: 20px;
+  right: 20px;
+
+  z-index: 9998;
+
+  background: rgba(12, 12, 12, 0.98);
+
+  border: 1px solid rgba(199, 167, 91, 0.22);
+
+  border-radius: 24px;
+
+  padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  max-height: calc(100vh - 120px);
+
+  overflow-y: auto;
+
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.7);
+}
+
+/* MENU BUTTONS */
+.mobile-menu a,
+.mobileMenu a,
+.menuOverlay a {
+  display: block;
+  width: 100%;
+
+  padding: 20px 22px;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 1px solid rgba(255, 255, 255, 0.04);
+
+  color: white;
+
+  font-size: 1.3rem;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition: all 0.25s ease;
+}
+
+.mobile-menu a:hover,
+.mobileMenu a:hover,
+.menuOverlay a:hover {
+  background: rgba(199, 167, 91, 0.18);
+
+  transform: translateY(-2px);
+}
+
+/* CARDS */
+.card,
+.section-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(199, 167, 91, 0.06),
+      rgba(255, 255, 255, 0.015)
+    );
+
+  border: 1px solid var(--border);
+
+  border-radius: 32px;
+
+  backdrop-filter: blur(14px);
+}
+
+/* MOBILE FIXES */
+@media (max-width: 768px) {
+  .navbar {
+    width: calc(100% - 20px);
+    margin: 10px auto;
+  }
+
+  .services,
+  .services-section,
+  .pricing,
+  .pricing-section {
+    overflow-y: auto;
+    max-height: none;
+
+    padding-bottom: 100px;
+  }
+
+  .card,
+  .section-card {
+    overflow: visible;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* TRANSITION SCREEN */
+.transition-screen {
+  position: fixed;
+  inset: 0;
+
+  z-index: 99999;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.35)
+    ),
+    url("/transition-door.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transform: translateY(-100%);
+
+  pointer-events: none;
+}
+
+/* ACTIVE ANIMATION */
+.transition-screen.active {
+  animation: semiDoorSlide 1.35s ease-in-out forwards;
+}
+
+/* DOOR SLIDES DOWN THEN BACK UP */
+@keyframes semiDoorSlide {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  45% {
+    transform: translateY(0%);
+  }
+
+  65% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
 }
