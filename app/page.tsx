@@ -292,6 +292,7 @@ export default function BCBHaulingWebsite() {
   )}
 </AnimatePresence>
 
+
       <main className="min-h-screen overflow-x-hidden bg-[#050505] text-white selection:bg-[#B79A57] selection:text-black">
         <div className="fixed inset-0 -z-10">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,.055)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,.055)_1px,transparent_1px)] bg-[size:72px_72px]" />
