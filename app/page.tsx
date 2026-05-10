@@ -284,7 +284,7 @@ export default function BCBHaulingWebsite() {
     initial={{ y: "-100%" }}
     animate={{ y: ["-100%", "0%", "-100%"] }}
     transition={{
-    duration: 2.5,
+    duration: 1.5,
     times: [0, 0.45, 1],
     ease: "easeInOut",
   }}
