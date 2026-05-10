@@ -79,7 +79,7 @@ function PageDisplayBox({
                   initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   exit={{ opacity: 0, y: -20, filter: "blur(8px)" }}
-                  transition={{ duration: 1.0 }}
+                  transition={{ duration: 2.0 }}
                 >
                   <h2 className="text-6xl font-black tracking-tight text-white md:text-8xl">
                     {page.label}
