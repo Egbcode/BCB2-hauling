@@ -266,11 +266,11 @@ export default function BCBHaulingWebsite() {
 
   setTimeout(() => {
     setActivePage(pageKey);
-  }, 700);
+  }, 420);
 
   setTimeout(() => {
     setTransitioning(false);
-  }, 1400);
+  }, 950);
 }
 
   return (
@@ -280,32 +280,29 @@ export default function BCBHaulingWebsite() {
   {transitioning && (
     <motion.div
       initial={{ y: "-100%" }}
-      animate={{
-        y: ["-100%", "0%", "0%", "-100%"],
-      }}
+      animate={{ y: ["-100%", "0%", "0%", "-100%"] }}
       transition={{
-        duration: 1.35,
-        times: [0, 0.45, 0.7, 1],
+        duration: 0.9,
+        times: [0, 0.35, 0.58, 1],
         ease: "easeInOut",
       }}
       className="fixed inset-0 z-[200] bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage:
-          'linear-gradient(rgba(0,0,0,.08), rgba(0,0,0,.22)), url("/transition-door.jpg")',
+          'linear-gradient(rgba(0,0,0,.05), rgba(0,0,0,.18)), url("/transition-door.jpg")',
       }}
     />
   )}
 </AnimatePresence>
 
-
-      <main className="min-h-screen overflow-x-hidden bg-[#050505] text-white selection:bg-[#B79A57] selection:text-black">
+      <main className="min-h-screen overflow-x-hidden overflow-y-auto bg-[#050505] text-white selection:bg-[#B79A57] selection:text-black">
         <div className="fixed inset-0 -z-10">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,.055)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,.055)_1px,transparent_1px)] bg-[size:72px_72px]" />
           <div className="absolute left-1/2 top-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[#B79A57]/20 blur-[120px]" />
           <div className="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-white/10 blur-[140px]" />
         </div>
 
-        <nav className="fixed left-1/2 top-5 z-50 w-[calc(100%-2rem)] max-w-6xl -translate-x-1/2 rounded-[1.8rem] border border-white/10 bg-black/55 px-4 py-3 shadow-2xl backdrop-blur-xl">
+        <nav className="fixed left-1/2 top-5 z-50 w-[calc(100%-2rem)] max-w-6xl -translate-x-1/2 border border-white/10 bg-black/80 px-4 py-3 shadow-2xl backdrop-blur-xl md:rounded-full rounded-2xl">
           <div className="flex items-center justify-between">
             <button onClick={() => navigatePage("home")} className="flex items-center gap-3">
               <div className="grid h-11 w-11 place-items-center rounded-full bg-[#B79A57] font-black text-black">
