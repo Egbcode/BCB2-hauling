@@ -277,35 +277,22 @@ export default function BCBHaulingWebsite() {
   return (
     <>
       <AnimatePresence>
-        {transitioning && (
-          <motion.div
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "-100%" }}
-            transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-[200] overflow-hidden bg-[#B79A57]"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ delay: 0.12, duration: 0.35 }}
-              className="flex h-full w-full items-center justify-center"
-            >
-              <div className="text-center">
-                <p className="mb-5 text-sm font-bold uppercase tracking-[.5em] text-black/60">
-                  BCB Hauling
-                </p>
-                <h1 className="text-7xl font-black text-black md:text-9xl">
-                  {nextPageLabel}
-                </h1>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+  {transitioning && (
+    <motion.div
+      initial={{ y: "-100%" }}
+      animate={{ y: "0%" }}
+      exit={{ y: "-100%" }}
+      transition={{ duration: 0.65, ease: [0.76, 0, 0.24, 1] }}
+      className="fixed inset-0 z-[200] bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage:
+          'linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.25)), url("/transition-door.jpg")',
+      }}
+    />
+  )}
+</AnimatePresence>
 
-      <main className="min-h-screen overflow-hidden bg-[#050505] text-white selection:bg-[#B79A57] selection:text-black">
+      <main className="min-h-screen overflow-x-hidden bg-[#050505] text-white selection:bg-[#B79A57] selection:text-black">
         <div className="fixed inset-0 -z-10">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,.055)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,.055)_1px,transparent_1px)] bg-[size:72px_72px]" />
           <div className="absolute left-1/2 top-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[#B79A57]/20 blur-[120px]" />
@@ -353,12 +340,13 @@ export default function BCBHaulingWebsite() {
           </div>
 
           {menuOpen && (
-            <div className="mt-4 grid gap-2 md:hidden">
+            {menuOpen && (
+              <div className="mt-4 grid max-h-[70vh] gap-3 overflow-y-auto rounded-[1.5rem] border border-white/10 bg-black/95 p-3 shadow-2xl md:hidden">
               {Object.entries(pages).map(([key, page]) => (
                 <button
                   key={key}
                   onClick={() => navigatePage(key)}
-                  className="rounded-2xl bg-white/10 px-4 py-3 text-left font-bold"
+                  className="rounded-xl border border-white/10 bg-white/10 px-5 py-5 text-left text-xl font-black"
                 >
                   {page.label}
                 </button>
