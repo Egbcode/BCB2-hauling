@@ -60,7 +60,7 @@ function PageDisplayBox({
       <motion.div
         initial={{ y: 40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 2.0, ease: "easeOut" }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
         className="relative"
       >
         <div className="relative h-[360px] overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-zinc-950 via-zinc-900 to-black p-8 shadow-2xl md:h-[440px]">
@@ -79,7 +79,7 @@ function PageDisplayBox({
                   initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   exit={{ opacity: 0, y: -20, filter: "blur(8px)" }}
-                  transition={{ duration: 2.0 }}
+                  transition={{ duration: 0.45 }}
                 >
                   <h2 className="text-6xl font-black tracking-tight text-white md:text-8xl">
                     {page.label}
@@ -262,12 +262,17 @@ export default function BCBHaulingWebsite() {
   if (pageKey === activePage) return;
 
   setMenuOpen(false);
-  setActivePage(pageKey);
+
+  // START transition immediately
   setTransitioning(true);
 
+  // switch page instantly
+  setActivePage(pageKey);
+
+  // smoother longer animation
   setTimeout(() => {
     setTransitioning(false);
-  }, 520);
+  }, 2500);
 }
 
   return (
@@ -279,10 +284,10 @@ export default function BCBHaulingWebsite() {
       initial={{ y: "-100%" }}
       animate={{ y: ["-100%", "0%", "-100%"] }}
       transition={{
-        duration: 0.5,
-        times: [0, 0.45, 1],
+        duration: 2.5,
+        times: [0, 0.5, 1],
         ease: "easeInOut",
-      }}
+}}
       className="fixed inset-0 z-[200] bg-cover bg-center bg-no-repeat pointer-events-none"
       style={{
         backgroundImage:
