@@ -271,8 +271,8 @@ export default function BCBHaulingWebsite() {
 
   // smoother longer animation
   setTimeout(() => {
-    setTransitioning(false);
-  }, 2500);
+  setTransitioning(false);
+}, 2500);
 }
 
   return (
@@ -281,13 +281,13 @@ export default function BCBHaulingWebsite() {
      <AnimatePresence>
   {transitioning && (
     <motion.div
-      initial={{ y: "-100%" }}
-      animate={{ y: ["-100%", "0%", "-100%"] }}
-      transition={{
-        duration: 2.5,
-        times: [0, 0.5, 1],
-        ease: "easeInOut",
-}}
+    initial={{ y: "-100%" }}
+    animate={{ y: ["-100%", "0%", "-100%"] }}
+    transition={{
+    duration: 2.5,
+    times: [0, 0.45, 1],
+    ease: "easeInOut",
+  }}
       className="fixed inset-0 z-[200] bg-cover bg-center bg-no-repeat pointer-events-none"
       style={{
         backgroundImage:
