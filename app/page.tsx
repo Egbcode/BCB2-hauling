@@ -417,7 +417,7 @@ export default function BCBHaulingWebsite() {
                   How it works
                 </p>
                 <h2 className="text-4xl font-black md:text-5xl">
-                  Door transition. Clean pages. Fast booking.
+                  Fast results. Cheap prices. No headaches.
                 </h2>
               </div>
               <div className="grid gap-4 md:grid-cols-3">
